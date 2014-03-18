@@ -1,0 +1,5 @@
+#!/bin/sh
+mkdir -p /dev/pts
+mount -t devpts devpts /dev/pts
+/usr/sbin/inetd /etc/inetd.conf
+/etc/init.d/getIP &

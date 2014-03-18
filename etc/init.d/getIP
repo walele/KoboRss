@@ -1,0 +1,14 @@
+#!/bin/sh
+sleep 30
+
+if [ ! -f /mnt/onboard/.kobo/ip.txt ];
+then
+    ifconfig | grep "inet addr:" | cut -c 21-33 > /mnt/onboard/.kobo/ip.txt
+    /usr/local/Kobo/pickel blinkon
+    sleep 5
+    /usr/local/Kobo/pickel blinkoff
+else
+    ifconfig | grep "inet addr:" | cut -c 21-33 > /mnt/onboard/.kobo/ip.txt
+fi
+
+
